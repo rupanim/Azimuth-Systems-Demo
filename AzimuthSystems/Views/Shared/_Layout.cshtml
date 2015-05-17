@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azimuth Systems Demo</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/JsSupport")
+</head>
+    <body>
+        
+        <div class="container body-content">
+            <img alt="Logo Missing!" src="~/Content/Images/azimuth_logo.jpg" />
+            <h2>Azimuth Systems - Demo</h2>
+
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Azimuth Systems Demo Application</p>
+            </footer>
+        </div>
+
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

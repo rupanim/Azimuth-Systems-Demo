@@ -1,0 +1,73 @@
+﻿<html ng-app="OAuthLogin">
+<head>
+    <title>OAuth Login Page</title>
+</head>
+<body ng-controller="LoginController">
+    
+    <div class="container">
+        <form class="form-inline">
+            <table class="table">  
+                <tr>
+                    <td width="50%" class="text-center">
+                        <div class="form-group">
+                            <label>Abbreviations</label>
+                            <select ng-class="DefaultOption('Abbrv')" ng-options="abbrv for abbrv in AbbrvList" ng-model="abbrvSelected"></select>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <div class="form-group">
+                            <label>Definition</label>
+                            <select ng-class="DefaultOption('Definition')" ng-options="definition for definition in DefinitionList" ng-model="definitionSelected"></select>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="btn-group button-panel">
+                <button type="submit" class="btn btn-info btn-lg" ng-click="ValidateForm() && Match()">Match?</button>
+            </div>
+        </form>
+    </div>
+        
+    <br/>
+    <br/>
+    
+   
+
+    <div  ng-show="viewHistory == true">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <span style="font-size: 20px; font-family:cursive;">
+                        History (Most recent at the top)
+                    </span>
+                </h3>
+            </div>
+        </div>
+        <div class="">
+
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Abbreviation</th>
+                            <th>Definition</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="result in History">
+                            <td>{{result.abbrv}}</td>
+                            <td>{{result.value}}</td>
+                            <td>
+                                <div ng-bind-html="result.result"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    
+    @Scripts.Render("~/bundles/AzimuthDemoApp")
+</body>
+</html>

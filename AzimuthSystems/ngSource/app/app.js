@@ -1,0 +1,1 @@
+﻿var app = new angular.module('OAuthLogin', ['ui.bootstrap']);
